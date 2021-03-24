@@ -1,0 +1,34 @@
+[user]
+	name = Dirk Baeumer
+	email = dirkb@microsoft.com
+[core]
+	excludesfile =
+	preloadindex = true
+	fscache = true
+	editor = code-insiders -r --wait
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%Cgreen%h%Creset %ad |%C(cyan)%d%Creset %s %Cred<%an>%Creset\" --graph --date=relative --date-order -25
+	hist-unlimited = log --pretty=format:\"%Cgreen%h%Creset %ad |%C(cyan)%d%Creset %s %Cred<%an>%Creset\" --graph --date=relative --date-order
+	current = !git symbolic-ref HEAD 2>/dev/null | cut -d/-f 3
+	standup = !git log --pretty=format:\"%Cred%ad%Creset | %s\" --since=\"1 day ago\" --date=relative --date-order --all --author=\"$(git config user.name)\"
+[color]
+    ui = auto
+[color "status"]
+    changed = yellow bold
+    untracked = yellow bold
+    added = green bold
+[push]
+	default = current
+[pull]
+	rebase = true
+[gc]
+	auto = 256
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
