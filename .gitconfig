@@ -25,6 +25,8 @@
 	default = current
 [pull]
 	rebase = true
+[gpg]
+        program = /.codespaces/bin/gh-gpgsign
 [gc]
 	auto = 256
 [filter "lfs"]
